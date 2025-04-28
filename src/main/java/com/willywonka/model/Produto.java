@@ -1,6 +1,5 @@
 package com.willywonka.model;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,12 +7,24 @@ import lombok.Setter;
 @Getter
 public class Produto {
 
-    // Getters e Setters
-    private Long id;
+    private int id;
     private String nome;
     private Double preco;
     private String descricao;
+    private double quantidade;
 
+    public Produto(String nome, Double preco, double quantidade) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+    public Produto() {}
 
-    public Produto(String nome, Double preco) {}
+    @Override
+    public String toString() {
+        return "Id - " + getId()
+                + " - Produto: " + nome
+                +  ", preco: " + preco
+                + ", quantidade: " + quantidade;
+    }
 }

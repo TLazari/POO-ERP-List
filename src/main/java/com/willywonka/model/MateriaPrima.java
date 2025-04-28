@@ -1,10 +1,8 @@
 package com.willywonka.model;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
-// Entidade MateriaPrima
 @Getter
 @Setter
 

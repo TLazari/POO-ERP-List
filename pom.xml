@@ -13,16 +13,21 @@
 		<java.version>24</java.version>
 	</properties>
 
+
 	<dependencies>
-		<!-- Dependência do Lombok, para usar anotações como @Getter, @Setter -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.38</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- Outras dependências podem ser adicionadas aqui -->
 	</dependencies>
+
 
 	<build>
 		<plugins>
