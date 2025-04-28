@@ -37,6 +37,13 @@ public class ProdutoService {
                 .findFirst();
         return produto.orElse(null);
     }
+    // Buscar pelo Nome
+    public Produto buscarPorNome(String nome) {
+        Optional<Produto> produto = produtos.stream()
+                .filter(p -> p.getNome().equals(nome))
+                .findFirst();
+        return produto.orElse(null);
+    }
 
     //Utilitários pelo Menu
 

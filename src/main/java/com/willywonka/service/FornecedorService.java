@@ -64,7 +64,7 @@ public class FornecedorService {
 
         this.salvar(fornecedor);
 
-        System.out.println("Produto adicionado com sucesso!");
+        System.out.println("Fornecedor adicionado com sucesso!");
     }
 
     //Edição do Fornecedor através do ID

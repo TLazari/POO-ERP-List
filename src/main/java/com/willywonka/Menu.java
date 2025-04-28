@@ -4,16 +4,21 @@ import com.willywonka.model.Fornecedor;
 import com.willywonka.model.Produto;
 import com.willywonka.service.FornecedorService;
 import com.willywonka.service.ProdutoService;
+import com.willywonka.service.ReceitaService;
 
 import java.util.Scanner;
 
 public class Menu {
+
     Scanner scanner = new Scanner(System.in);
     int opcao = 0;
+
     ProdutoService dbProdutos = new ProdutoService();
     FornecedorService dbFornecedor = new FornecedorService();
+    ReceitaService producaoService = new ReceitaService(dbProdutos);
 
     public void mostrarMenu() {
+
         do {
             limparConsole();
             System.out.println("==== MENU ====");
@@ -33,7 +38,7 @@ public class Menu {
                     menuFornecedor();
                     break;
                 case 3:
-                    //fn
+                    mostrarProducao();
                     break;
                 case 4:
                     break;
@@ -47,6 +52,7 @@ public class Menu {
         } while (opcao != 0);
         scanner.close();
     }
+
     public void menuProdutos (){
         do {
             limparConsole();
@@ -59,6 +65,7 @@ public class Menu {
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
+
 
             switch (opcao) {
                 case 1:
@@ -82,6 +89,14 @@ public class Menu {
                     break;
 
                 case 4:
+                    dbProdutos.listar();
+                    if (dbProdutos.listar().isEmpty()) {
+                        System.out.println("Nenhum produto cadastrado.");
+                    } else {
+                        for (Produto produto : dbProdutos.listar()) {
+                            System.out.println(produto);
+                        }
+                    }
                     dbProdutos.excluirProduto();
                     opcao = scanner.nextInt();
                     break;
@@ -126,7 +141,7 @@ public class Menu {
                         System.out.println("Nenhum fornecedor cadastrado.");
                     } else {
                         for (Fornecedor fornecedor : dbFornecedor.listar()) {
-                            System.out.print(fornecedor);
+                            System.out.println(fornecedor);
                         }
                     }
                     opcao = scanner.nextInt();
@@ -148,6 +163,7 @@ public class Menu {
         } while (opcao != 0);
         scanner.close();
     }
+
     public void mostrarProducao(){
         do {
             limparConsole();
@@ -161,13 +177,13 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    //fn;
-                    break;
+                    producaoService.produzirBarraDeChocolate();
+                    opcao = scanner.nextInt();
                 case 2:
                     //fn
                     break;
                 case 9:
-                    //fn
+                    mostrarMenu();
                     break;
                 case 0:
                     System.out.println("Finalizando sistema...");
@@ -184,6 +200,21 @@ public class Menu {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
+    }
+
+    public void popularDadosIniciais() {
+
+        Produto p1 = new Produto("Amendoim", 10.0, 100);
+        Produto p2 = new Produto("Cacau", 12.5, 200);
+        Produto p3 = new Produto("Leite",5.0, 50);
+        dbProdutos.salvar(p1);
+        dbProdutos.salvar(p2);
+        dbProdutos.salvar(p3);
+
+        Fornecedor f1 = new Fornecedor("Lacta ME", "123456789012", "avenida das rosas, 222", "12 99999993");
+        Fornecedor f2 = new Fornecedor("Amendoim Ltda", "998877664433", "Rua dos bobos, 0", "12 912333333");
+        dbFornecedor.salvar(f1);
+        dbFornecedor.salvar(f2);
     }
 
 }

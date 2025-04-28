@@ -14,7 +14,7 @@ public class Main {
 		FornecedorService dbFornecedor = new FornecedorService();
 		ProdutoService dbProdutos = new ProdutoService();
 		Menu menu = new Menu();
-		/*
+/*
 		// Criando e adicionando fornecedores
 		Fornecedor fornecedor1 = new Fornecedor("Fornecedor A", "123456789", "Rua XYZ", "11999999999");
 		Fornecedor fornecedor2 = new Fornecedor("Fornecedor B", "987654321", "Rua ABC", "11888888888");
@@ -29,13 +29,7 @@ public class Main {
 		}
 
 		// Criando e adicionando produtos
-		Produto produto1 = new Produto("AÇUCAR", 10.5, 100);
-		Produto produto2 = new Produto("CACAU", 15.0, 100);
-		Produto produto3 = new Produto("AMENDOIM", 20.0, 100);
 
-		dbProdutos.salvar(produto1);
-		dbProdutos.salvar(produto2);
-		dbProdutos.salvar(produto3);
 
 		// Listando produtos
 		System.out.println("\nLista de Produtos:");
@@ -44,7 +38,7 @@ public class Main {
 			System.out.println(produto);
 		};
 		*/
-
+		menu.popularDadosIniciais();
 		menu.mostrarMenu();
 	}
 }
