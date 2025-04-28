@@ -1,6 +1,8 @@
 package com.willywonka;
 
+import com.willywonka.model.Fornecedor;
 import com.willywonka.model.Produto;
+import com.willywonka.service.FornecedorService;
 import com.willywonka.service.ProdutoService;
 
 import java.util.Scanner;
@@ -9,6 +11,7 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
     int opcao = 0;
     ProdutoService dbProdutos = new ProdutoService();
+    FornecedorService dbFornecedor = new FornecedorService();
 
     public void mostrarMenu() {
         do {
@@ -27,7 +30,7 @@ public class Menu {
                     menuProdutos();
                     break;
                 case 2:
-                    //fn
+                    menuFornecedor();
                     break;
                 case 3:
                     //fn
@@ -93,8 +96,9 @@ public class Menu {
 
         } while (opcao != 0);
         scanner.close();
-    };
-    public void mostrarFornecedor() {
+    }
+
+    public void menuFornecedor() {
         do {
             limparConsole();
             System.out.println("==== MENU ====");
@@ -102,29 +106,37 @@ public class Menu {
             System.out.println("2. Editar Fornecedor");
             System.out.println("3. Listar Fornecedores");
             System.out.println("4. Excluir Fornecedor");
-            System.out.println("6. Voltar ao menu anterior");
+            System.out.println("5. Voltar ao menu anterior");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1:
-                    menuProdutos();
+                    dbFornecedor.adicionarFornecedor();
+                    opcao = scanner.nextInt();
                     break;
                 case 2:
-                    //fn
+                    dbFornecedor.editarFornecedor();
+                    opcao = scanner.nextInt();
                     break;
                 case 3:
-                    //fn
+                    dbFornecedor.listar();
+                    if (dbFornecedor.listar().isEmpty()) {
+                        System.out.println("Nenhum fornecedor cadastrado.");
+                    } else {
+                        for (Fornecedor fornecedor : dbFornecedor.listar()) {
+                            System.out.print(fornecedor);
+                        }
+                    }
+                    opcao = scanner.nextInt();
                     break;
                 case 4:
-                    //fn
+                    dbFornecedor.excluirFornecedor();
+                    opcao = scanner.nextInt();
                     break;
                 case 5:
-                    //fn
-                    break;
-                case 6:
-                    //fn
+                    mostrarMenu();
                     break;
                 case 0:
                     System.out.println("Finalizando sistema...");

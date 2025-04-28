@@ -24,6 +24,7 @@ public class ProdutoService {
         produto.setId(currentId++);
         produtos.add(produto);
     }
+
     // Excluir um produto
     public void excluir(int id) {
         produtos.removeIf(produto -> produto.getId()== id );
@@ -60,6 +61,7 @@ public class ProdutoService {
 
         System.out.println("Produto adicionado com sucesso!");
     }
+
     public void excluirProduto() {
         System.out.println("Digite o ID do produto que deseja excluir:");
         int id = scanner.nextInt();
