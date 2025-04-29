@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Fornecedor {
+public class Fornecedor extends EntidadeBase {
 
-    private int id;
     private String nome;
     private String cnpj;
     private String endereco;
@@ -23,7 +22,7 @@ public class Fornecedor {
     }
     @Override
     public String toString() {
-        return id + " - Fornecedor: " + nome +
+        return getId() + " - Fornecedor: " + nome +
                 ", CNPJ=" + cnpj +
                 ", Endereco= " + endereco +
                 ", Telefone= " + telefone ;

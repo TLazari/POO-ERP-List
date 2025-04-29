@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class ReceitaService {
     private final ProdutoService receitaServices;
-    private final Scanner scanner = new Scanner(System.in);
 
     public ReceitaService(ProdutoService produtoService) {
         this.receitaServices = produtoService;

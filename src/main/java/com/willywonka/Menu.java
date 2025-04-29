@@ -61,7 +61,7 @@ public class Menu {
             System.out.println("2. Editar Produto");
             System.out.println("3. Listar Produtos");
             System.out.println("4. Excluir Produto");
-            System.out.println("5. Voltar ao menu anterior");
+            System.out.println("9. Voltar ao menu anterior");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
@@ -100,8 +100,9 @@ public class Menu {
                     dbProdutos.excluirProduto();
                     opcao = scanner.nextInt();
                     break;
-                case 5:
+                case 9:
                     mostrarMenu();
+                    break;
                 case 0:
                     System.out.println("Finalizando sistema...");
                     break;
@@ -121,7 +122,7 @@ public class Menu {
             System.out.println("2. Editar Fornecedor");
             System.out.println("3. Listar Fornecedores");
             System.out.println("4. Excluir Fornecedor");
-            System.out.println("5. Voltar ao menu anterior");
+            System.out.println("9. Voltar ao menu anterior");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
@@ -150,7 +151,7 @@ public class Menu {
                     dbFornecedor.excluirFornecedor();
                     opcao = scanner.nextInt();
                     break;
-                case 5:
+                case 9:
                     mostrarMenu();
                     break;
                 case 0:
@@ -204,17 +205,19 @@ public class Menu {
 
     public void popularDadosIniciais() {
 
-        Produto p1 = new Produto("Amendoim", 10.0, 100);
-        Produto p2 = new Produto("Cacau", 12.5, 200);
+        Fornecedor f1 = new Fornecedor("Lacta ME", "123456789012", "avenida das rosas, 222", "12 99999993");
+        Fornecedor f2 = new Fornecedor("Amendoim Ltda", "998877664433", "Rua dos bobos, 0", "12 912333333");
+        dbFornecedor.salvar(f1);
+        dbFornecedor.salvar(f2);
+
+        Produto p1 = new Produto("Amendoim", 10.0, 100,f2);
+        Produto p2 = new Produto("Cacau", 12.5, 200,f1);
         Produto p3 = new Produto("Leite",5.0, 50);
         dbProdutos.salvar(p1);
         dbProdutos.salvar(p2);
         dbProdutos.salvar(p3);
 
-        Fornecedor f1 = new Fornecedor("Lacta ME", "123456789012", "avenida das rosas, 222", "12 99999993");
-        Fornecedor f2 = new Fornecedor("Amendoim Ltda", "998877664433", "Rua dos bobos, 0", "12 912333333");
-        dbFornecedor.salvar(f1);
-        dbFornecedor.salvar(f2);
+
     }
 
 }

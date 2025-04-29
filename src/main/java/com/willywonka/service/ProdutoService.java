@@ -7,25 +7,27 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ProdutoService {
+public class ProdutoService implements CRUDService<Produto> {
 
     private final Scanner scanner = new Scanner(System.in);
     private final List<Produto> produtos = new ArrayList<>();
     private int currentId = 1;
 
     // Listar todos os produtos
-
+    @Override
     public List<Produto> listar() {
         return produtos;
     }
 
     // Salvar um novo produto
+    @Override
     public void salvar(Produto produto) {
         produto.setId(currentId++);
         produtos.add(produto);
     }
 
     // Excluir um produto
+    @Override
     public void excluir(int id) {
         produtos.removeIf(produto -> produto.getId()== id );
     }
@@ -37,6 +39,7 @@ public class ProdutoService {
                 .findFirst();
         return produto.orElse(null);
     }
+
     // Buscar pelo Nome
     public Produto buscarPorNome(String nome) {
         Optional<Produto> produto = produtos.stream()
@@ -46,7 +49,6 @@ public class ProdutoService {
     }
 
     //Utilitários pelo Menu
-
     public void adicionarProduto() {
         System.out.println("Digite o nome do produto:");
         String nome = scanner.nextLine();
@@ -83,6 +85,7 @@ public class ProdutoService {
             System.out.println("Produto com ID " + id + " não encontrado.");
         }
     }
+
     // Editar um produto
     public void editarProduto() {
         System.out.println("Digite o ID do produto que deseja editar:");

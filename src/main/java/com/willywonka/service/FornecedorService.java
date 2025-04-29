@@ -1,5 +1,6 @@
 package com.willywonka.service;
 
+import com.willywonka.model.EntidadeBase;
 import com.willywonka.model.Fornecedor;
 import com.willywonka.model.Produto;
 
@@ -9,29 +10,28 @@ import java.util.Optional;
 import java.util.Scanner;
 
 
-public class FornecedorService {
-
+public class FornecedorService implements CRUDService<Fornecedor> {
     private final List<Fornecedor> fornecedores = new ArrayList<>();
     private int currentId = 1;
     private final Scanner scanner = new Scanner(System.in);
 
-    // Listar todos os fornecedores
+    @Override
     public List<Fornecedor> listar() {
         return fornecedores;
     }
 
-    // Salvar um novo fornecedor
+    @Override
     public void salvar(Fornecedor fornecedor) {
         fornecedor.setId(currentId++);
         fornecedores.add(fornecedor);
     }
 
-    // Excluir um fornecedor
+    @Override
     public void excluir(int id) {
         fornecedores.removeIf(fornecedor -> fornecedor.getId() == id);
     }
 
-    // Buscar um fornecedor pelo ID
+    @Override
     public Fornecedor buscarPorId(int id) {
         Optional<Fornecedor> fornecedor = fornecedores.stream()
                 .filter(f -> f.getId() == id)
@@ -54,7 +54,6 @@ public class FornecedorService {
 
         System.out.println("Digite o telefone:");
         String telefone = scanner.nextLine();
-
 
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome(nome);
@@ -107,7 +106,6 @@ public class FornecedorService {
             System.out.println("Fornecedor com ID " + id + " não encontrado.");
         }
     }
-
 
     //Excluir um Fornecedor através do ID
     public void excluirFornecedor() {

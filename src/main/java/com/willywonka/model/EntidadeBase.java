@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 
 public abstract class EntidadeBase {
-    private Long id;
+    private int id;
 }
