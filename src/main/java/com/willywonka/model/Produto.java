@@ -1,15 +1,13 @@
+/*
+ * @author Andre Carvalho
+ */
+
 package com.willywonka.model;
-
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
 
 public class Produto extends EntidadeBase{
 
     private String nome;
-    private Double preco;
+    private double preco;
     private String descricao;
     private double quantidade;
     private Fornecedor fornecedor;

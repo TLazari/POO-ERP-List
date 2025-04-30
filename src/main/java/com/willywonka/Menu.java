@@ -1,3 +1,7 @@
+/*
+ * @author Rayza Luana e Thiago Lazari
+ */
+
 package com.willywonka;
 
 import com.willywonka.model.Fornecedor;

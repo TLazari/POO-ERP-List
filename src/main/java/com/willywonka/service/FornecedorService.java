@@ -1,7 +1,10 @@
+/*
+ * @author Ruan Lucas
+ */
+
 package com.willywonka.service;
 
 import com.willywonka.model.Fornecedor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +15,7 @@ public class FornecedorService implements CRUDService<Fornecedor> {
     private final List<Fornecedor> fornecedores = new ArrayList<>();
     private int currentId = 1;
     private final Scanner scanner = new Scanner(System.in);
+
 
     @Override
     public List<Fornecedor> listar() {

@@ -1,3 +1,7 @@
+/*
+ * @author Ruan Lucas
+ */
+
 package com.willywonka.model;
 
 public class Fornecedor extends EntidadeBase {
