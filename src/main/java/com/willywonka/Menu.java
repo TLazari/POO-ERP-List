@@ -12,7 +12,6 @@ public class Menu {
 
     Scanner scanner = new Scanner(System.in);
     int opcao = 0;
-
     ProdutoService dbProdutos = new ProdutoService();
     FornecedorService dbFornecedor = new FornecedorService();
     ReceitaService producaoService = new ReceitaService(dbProdutos);
@@ -66,15 +65,14 @@ public class Menu {
 
             opcao = scanner.nextInt();
 
-
             switch (opcao) {
                 case 1:
                     dbProdutos.adicionarProduto();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 2:
                     dbProdutos.editarProduto();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 3:
                     dbProdutos.listar();
@@ -85,7 +83,7 @@ public class Menu {
                             System.out.println(produto);
                         }
                     }
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
 
                 case 4:
@@ -98,7 +96,7 @@ public class Menu {
                         }
                     }
                     dbProdutos.excluirProduto();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 9:
                     mostrarMenu();
@@ -130,11 +128,11 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     dbFornecedor.adicionarFornecedor();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 2:
                     dbFornecedor.editarFornecedor();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 3:
                     dbFornecedor.listar();
@@ -145,11 +143,11 @@ public class Menu {
                             System.out.println(fornecedor);
                         }
                     }
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 4:
                     dbFornecedor.excluirFornecedor();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 9:
                     mostrarMenu();
@@ -179,11 +177,11 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     producaoService.produzirBarraDeChocolate();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 2:
                     producaoService.produzirSnicker();
-                    opcao = scanner.nextInt();
+                    esperarEnter();
                     break;
                 case 9:
                     mostrarMenu();
@@ -236,6 +234,11 @@ public class Menu {
         dbProdutos.salvar(p3);
 
 
+    }
+    public void esperarEnter(){
+        System.out.println("Pressione ENTER para continuar...");
+        scanner.nextLine(); // Limpa o buffer do println
+        scanner.nextLine(); // Aguarda usuario
     }
 
 }
