@@ -69,8 +69,8 @@ public class ReceitaService {
                 return;
             }
 
-            double qtdCacau = 20; // exemplo: 0.5kg de chocolate
-            double qtdAmendoim = 8; // exemplo: 0.2kg de leite
+            double qtdCacau = 20; // 2kg de cacau
+            double qtdAmendoim = 8; // 800gr de Amendoim
 
             if (cacau.getQuantidade() < qtdCacau || amendoim.getQuantidade() < qtdAmendoim) {
                 System.out.println("Não foi possível produzir.");
