@@ -17,6 +17,19 @@ public class Menu {
     FornecedorService dbFornecedor = new FornecedorService();
     ReceitaService producaoService = new ReceitaService(dbProdutos);
 
+    public void loading(){
+        System.out.println("Loading…" +
+                    "█▒▒▒▒▒▒▒▒▒\n" +
+                    "10%" +
+                    "███▒▒▒▒▒▒▒\n" +
+                    "30%" +
+                    "█████▒▒▒▒▒\n" +
+                    "50%" +
+                    "███████▒▒▒\n" +
+                    "100%" +
+                    "██████████");
+    }
+
     public void mostrarMenu() {
 
         do {
@@ -33,9 +46,11 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     menuProdutos();
+                    loading();
                     break;
                 case 2:
                     menuFornecedor();
+                    loading();
                     break;
                 case 3:
                     mostrarProducao();
@@ -204,9 +219,10 @@ public class Menu {
     }
 
     public void popularDadosIniciais() {
-
+        Fornecedor producao = new Fornecedor("WillieWonka", "12333330001","Rua dos doces","134233444");
         Fornecedor f1 = new Fornecedor("Lacta ME", "123456789012", "avenida das rosas, 222", "12 99999993");
         Fornecedor f2 = new Fornecedor("Amendoim Ltda", "998877664433", "Rua dos bobos, 0", "12 912333333");
+        dbFornecedor.salvar(producao);
         dbFornecedor.salvar(f1);
         dbFornecedor.salvar(f2);
 
