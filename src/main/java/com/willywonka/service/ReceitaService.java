@@ -26,7 +26,12 @@ public class ReceitaService {
         double qtdLeite = 20; // exemplo: 0.2kg de leite
 
         if (cacau.getQuantidade() < qtdCacau || leite.getQuantidade() < qtdLeite) {
-            System.out.println("Quantidade insuficiente de ingredientes.");
+            System.out.println("Não foi possível produzir.");
+            if (cacau.getQuantidade() < qtdCacau){
+                System.out.println("Voce não possui " + cacau.getNome() + " o suficiente.");
+            }else {
+                System.out.println("Voce não possui " + leite.getNome() + " o suficiente.");
+            };
             return;
         }
 
@@ -52,6 +57,57 @@ public class ReceitaService {
             System.out.println("Barra de Chocolate criada e adicionada ao estoque!");
         }
 
-        System.out.println("Barra de Chocolate produzida com sucesso!");
+        System.out.println("Producao concluida com sucesso!");
     }
-}
+
+
+    public void produzirSnicker() {
+        System.out.println("Produzindo Snicker...");
+
+        Produto cacau = receitaServices.buscarPorNome("Cacau");
+        Produto amendoim = receitaServices.buscarPorNome("Amendoim");
+
+        if (cacau == null || amendoim == null) {
+                System.out.println("Adicione os ingredientes para produzir o Snicker. (Cacau e Amendoim)");
+                return;
+            }
+
+            double qtdCacau = 20; // exemplo: 0.5kg de chocolate
+            double qtdAmendoim = 8; // exemplo: 0.2kg de leite
+
+            if (cacau.getQuantidade() < qtdCacau || amendoim.getQuantidade() < qtdAmendoim) {
+                System.out.println("Não foi possível produzir.");
+                if (cacau.getQuantidade() < qtdCacau){
+                    System.out.println("Voce não possui " + cacau.getNome() + " o suficiente.");
+                } else {
+                    System.out.println("Voce não possui " + amendoim.getNome() + " o suficiente.");}
+                return;
+            }
+
+            // Dar baixa nos insumos
+            cacau.setQuantidade(cacau.getQuantidade() - qtdCacau);
+            amendoim.setQuantidade(amendoim.getQuantidade() - qtdAmendoim);
+
+            // Criar novo produto final
+            Produto snicker = receitaServices.buscarPorNome("Snicker");
+
+            if (snicker != null) {
+                // Já existe o produto -> apenas aumentar a quantidade
+                snicker.setQuantidade(snicker.getQuantidade() + 1);
+                System.out.println("Snicker já existia. Quantidade atualizada!");
+            } else {
+                // Não existe -> criar um novo produto
+                snicker = new Produto();
+                snicker.setNome("Snicker");
+                snicker.setPreco(5.50); // preço de venda
+                snicker.setQuantidade(1);
+
+                receitaServices.salvar(snicker);
+                System.out.println("Snicker criado e adicionada ao estoque!");
+            }
+
+            System.out.println("Producao concluida com sucesso!");
+        }
+    }
+
+

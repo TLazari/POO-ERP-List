@@ -180,8 +180,10 @@ public class Menu {
                 case 1:
                     producaoService.produzirBarraDeChocolate();
                     opcao = scanner.nextInt();
+                    break;
                 case 2:
-                    //fn
+                    producaoService.produzirSnicker();
+                    opcao = scanner.nextInt();
                     break;
                 case 9:
                     mostrarMenu();
