@@ -74,7 +74,7 @@ public class ProdutoService implements CRUDService<Produto> {
     public void excluirProduto() {
         System.out.println("Digite o ID do produto que deseja excluir:");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumir o \n
+        scanner.nextLine();
 
         Produto produtoEncontrado = buscarPorId(id);
 
@@ -90,7 +90,7 @@ public class ProdutoService implements CRUDService<Produto> {
     public void editarProduto() {
         System.out.println("Digite o ID do produto que deseja editar:");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumir o \n
+        scanner.nextLine();
 
         Produto produtoEncontrado = buscarPorId(id);
 

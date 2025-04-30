@@ -200,21 +200,37 @@ public class Menu {
     }
 
     public void limparConsole() {
+
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
+        this.logo();
+    }
+    public void logo(){
+        System.out.println("\n" +
+                " __          ___ _ _        __          __         _         \n" +
+                " \\ \\        / (_) | |       \\ \\        / /        | |        \n" +
+                "  \\ \\  /\\  / / _| | |_   _   \\ \\  /\\  / /__  _ __ | | ____ _ \n" +
+                "   \\ \\/  \\/ / | | | | | | |   \\ \\/  \\/ / _ \\| '_ \\| |/ / _` |\n" +
+                "    \\  /\\  /  | | | | |_| |    \\  /\\  / (_) | | | |   < (_| |\n" +
+                "     \\/  \\/   |_|_|_|\\__, |     \\/  \\/ \\___/|_| |_|_|\\_\\__,_|\n" +
+                "                      __/ |                                  \n" +
+                "                     |___/                                   \n");
     }
 
     public void popularDadosIniciais() {
 
         Fornecedor f1 = new Fornecedor("Lacta ME", "123456789012", "avenida das rosas, 222", "12 99999993");
         Fornecedor f2 = new Fornecedor("Amendoim Ltda", "998877664433", "Rua dos bobos, 0", "12 912333333");
+        Fornecedor f3 = new Fornecedor("Comevap" , "1234333210", "Vista verde, 400", "12 432433211");
+
         dbFornecedor.salvar(f1);
+        dbFornecedor.salvar(f3);
         dbFornecedor.salvar(f2);
 
-        Produto p1 = new Produto("Amendoim", 10.0, 100,f2);
-        Produto p2 = new Produto("Cacau", 12.5, 200,f1);
-        Produto p3 = new Produto("Leite",5.0, 50);
+        Produto p1 = new Produto("Amendoim", 10.0, 100, f2);
+        Produto p2 = new Produto("Cacau", 12.5, 200, f1);
+        Produto p3 = new Produto("Leite",5.0, 50, f3);
         dbProdutos.salvar(p1);
         dbProdutos.salvar(p2);
         dbProdutos.salvar(p3);

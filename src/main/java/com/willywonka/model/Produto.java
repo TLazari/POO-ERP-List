@@ -37,6 +37,6 @@ public class Produto {
                 + " - Produto: " + nome
                 +  ", preco: " + preco
                 + ", quantidade: " + quantidade
-                +", fornecedor: " + (fornecedor != null ? fornecedor.getNome() : "Sem fornecedor");
+                +", fornecedor: " + (fornecedor != null ? fornecedor.getNome() : "Fabricacao Propria");
     }
 }
