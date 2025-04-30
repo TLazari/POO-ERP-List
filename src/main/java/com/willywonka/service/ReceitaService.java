@@ -2,8 +2,6 @@ package com.willywonka.service;
 
 import com.willywonka.model.Produto;
 
-import java.util.Scanner;
-
 public class ReceitaService {
     private final ProdutoService receitaServices;
 
@@ -22,8 +20,8 @@ public class ReceitaService {
             return;
         }
 
-        double qtdCacau = 50; // exemplo: 0.5kg de chocolate
-        double qtdLeite = 20; // exemplo: 0.2kg de leite
+        double qtdCacau = 50; // 0.5kg de chocolate
+        double qtdLeite = 20; // 0.2L de leite
 
         if (cacau.getQuantidade() < qtdCacau || leite.getQuantidade() < qtdLeite) {
             System.out.println("Não foi possível produzir.");
@@ -59,7 +57,6 @@ public class ReceitaService {
 
         System.out.println("Producao concluida com sucesso!");
     }
-
 
     public void produzirSnicker() {
         System.out.println("Produzindo Snicker...");

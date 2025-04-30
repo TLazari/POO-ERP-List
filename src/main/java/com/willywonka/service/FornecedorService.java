@@ -1,8 +1,6 @@
 package com.willywonka.service;
 
-import com.willywonka.model.EntidadeBase;
 import com.willywonka.model.Fornecedor;
-import com.willywonka.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,7 @@ public class FornecedorService implements CRUDService<Fornecedor> {
         return fornecedor.orElse(null);
     }
 
-    //Utilitários pelo Menu
+    //Utilitários pelo Menu (INPUT E OUTPUT)
 
     //Cadastro do Fornecedor e será atribuido um ID
     public void adicionarFornecedor() {
