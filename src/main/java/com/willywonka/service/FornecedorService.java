@@ -10,12 +10,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-
 public class FornecedorService implements CRUDService<Fornecedor> {
     private final List<Fornecedor> fornecedores = new ArrayList<>();
     private int currentId = 1;
     private final Scanner scanner = new Scanner(System.in);
-
 
     @Override
     public List<Fornecedor> listar() {
